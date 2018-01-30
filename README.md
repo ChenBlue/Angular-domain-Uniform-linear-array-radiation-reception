@@ -26,8 +26,8 @@ The following two figure shows the **LOS(Line-of-sight)** channel with SIMO and 
 Channel gain:
 $$ h_i = 𝑎∙𝑒𝑥𝑝(−\frac{𝑗2\pi 𝑓_𝑐 𝑑_𝑖}{c}) = 𝑎∙𝑒𝑥𝑝 (−\frac{𝑗2\pi 𝑑_𝑖}{\lambda_𝑐}) $$
 > a: attenuation of the path, which we assume to be the same for all antenna pairs </br>
+
 Because antenna space is much smaller than distance between transmitter and receiver, we can write distance between each antenna pair as:
 $$ di\approx 𝑑+(𝑖 − 1)\Delta _𝑟 \lambda _𝑐 \cos \phi , i = 1, ... , n_r $$
 Define directional cosine: $ \Omega = cos\phi $
-
-
+Define channel gain as:
