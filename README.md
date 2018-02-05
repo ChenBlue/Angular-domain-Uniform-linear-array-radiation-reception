@@ -64,7 +64,7 @@ $$ y^a =U_r ^* HU_t x^a +U_r^* w=H^a x^a +w^a $$
 where
 $$ H^a = U_r ^* HU_t $$
 
-### Correlation between two Geographically separated transmit antennas
+### Correlation between two Geographically separated transmitted antennas
 Two transmit antenna are placed very far apart, so the two channel are independent. Channel matrix $ H=[h_1,h_2] $ </br>
 Angle $ \theta $ between the two spatial signatures is 
 $$ |cosθ|=|e_r (\Omega _{r1} )^* e_r (\Omega _{r2})| $$ </br>
@@ -78,6 +78,8 @@ $$ |cos\theta |=\frac{1}{n_r }\frac{|1-e^{-j2π∆_r n_r Ω_r } |}{|1-e^{-j2π�
 **Beamforming pattern** : If the signal arrives from a single direction $ \phi _0 $, then the optimal receiver projects the received signal onto the vector $ e_r (cos \phi _0) $. A signal from any other direction φ is attenuated by a factor of
 $$ |e_r (cosφ_0 )^* e_r (cosφ)|=|f_r (cosφ-cosφ_0 )| $$
 Polar plot: $(φ,|f_r (cosφ-cosφ_0 )|) $
+
+For geographically separated **received** antennas, the concepts is similar to separated transmitted antennas.
 
 ## Result
 ### SIMO
@@ -108,7 +110,7 @@ Here, I will show other beamforming patterns with different $ phi_0 $, $ L_r $, 
 ![beamDelta](https://github.com/ChenBlue/Angular-domain-Uniform-linear-array-radiation-reception/blob/master/FIG/beam_delta.JPG) </br>
 
 3. The SINR of multiple input signals (multiple reception directions) with **diversity combining** </br>
-I implemented this part by **MRC (Maximal ratio combining)**, and the SINR = 16.9243 dB
+I implemented this part by **MRC (Maximal ratio combining)**, and the **SINR = 16.9243 dB**
 
 ### MISO
 **Input parameters**:
@@ -116,9 +118,13 @@ I implemented this part by **MRC (Maximal ratio combining)**, and the SINR = 16.
 * The normalized antenna separation: 1/2
 *	The reception directions of the desired signal: π/6
 *	The reception direction of the interference signal: π/3
-
+ </br>
+Basically, the result of MISO is similar to SIMO.
 1. Correlation between two signal with different radiation or reception direction $ \theta $ </br>
+![corr_MISO](https://github.com/ChenBlue/Angular-domain-Uniform-linear-array-radiation-reception/blob/master/FIG/corr_MISO.jpg) </br>
 
 2. Polar beamforming pattern of ULA </br>
+![beam_MISO](https://github.com/ChenBlue/Angular-domain-Uniform-linear-array-radiation-reception/blob/master/FIG/beam_MISO.jpg) </br>
 
 3. The SINR of multiple input signals (multiple reception directions) with **diversity combining** </br>
+I view different transmitted signals as different received signals and combined them together. I use MRC strategy and get the **SINR = 35.75 dB**
