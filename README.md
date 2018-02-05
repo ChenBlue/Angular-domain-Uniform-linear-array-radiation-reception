@@ -7,9 +7,8 @@ Implement angular-domain model of MIMO channel, and evaluate the Radiation and R
 * The radiation or reception direction of the interference signal
 
 ### Ouput results
-* The angular-domain radiation/reception basis
-* The correlation between different basis vectors
-* The gain pattern of the ULA
+* The correlation between two different
+* Polar beamforming pattern of the ULA
 * The gain of the desired signal for using different radiation/reception beams
 * The signal-to-interference power ratio (SINR) for using different beams
 * The SINR of multiple input signals (multiple reception directions) with diversity combining (considering fading for the signals and interference)
@@ -79,6 +78,15 @@ Since $ |1-e^{-j2\theta } |=|2sin\theta | $ </br>
 $$ |cos\theta |=\frac{1}{n_r }\frac{|1-e^{-j2π∆_r n_r Ω_r } |}{|1-e^{-j2π∆_r Ω_r } |} =|\frac{sin⁡(πn_r ∆_r Ω_r)}{n_r sin⁡(π∆_r Ω_r)}|=|\frac{sin⁡(πL_r Ω_r)}{n_r sin⁡(\frac{πL_r Ω_r }{n_r } )}| $$
 
 **Beamforming pattern** : If the signal arrives from a single direction $ \phi _0 $, then the optimal receiver projects the received signal onto the vector $ e_r (cos \phi _0) $. A signal from any other direction φ is attenuated by a factor of
-$ |e_r (cosφ_0 )^* e_r (cosφ)|=|f_r (cosφ-cosφ_0 )| $ </br>
+$$ |e_r (cosφ_0 )^* e_r (cosφ)|=|f_r (cosφ-cosφ_0 )| $$
 Polar plot: $(φ,|f_r (cosφ-cosφ_0 )|) $
 
+## Result
+### SIMO
+**Input parameters**:
+*	Number of received antenna: $ N_r $=5
+*	The normalized antenna separation: 1/2
+*	The reception directions of the desired signal: π/4
+*	The reception direction of the interference signal: π/2
+
+1. Gain pattern of ULA
