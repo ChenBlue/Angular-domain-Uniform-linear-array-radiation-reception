@@ -29,9 +29,22 @@ $$ h_i = 𝑎∙𝑒𝑥𝑝(−\frac{𝑗2\pi 𝑓_𝑐 𝑑_𝑖}{c}) = 𝑎�
 
 Because antenna space is much smaller than distance between transmitter and receiver, we can write distance between each antenna pair as:
 $$ di\approx 𝑑+(𝑖 − 1)\Delta _𝑟 \lambda _𝑐 \cos \phi , i = 1, ... , n_r $$
-Define directional cosine: $ \Omega = cos\phi $. Channel gain will be:
+Define directional cosine: $ \Omega = cos\phi $. Channel gain will be: </br>
 ![rx_channel_gain](https://github.com/ChenBlue/Angular-domain-Uniform-linear-array-radiation-reception/blob/master/FIG/rx_channel.JPG)
 
 ### LOS of MISO model
-Similar to SIMO model, the channel gain is:
+Similar to SIMO model, the channel gain is: </br>
 ![tx_channel_gain](https://github.com/ChenBlue/Angular-domain-Uniform-linear-array-radiation-reception/blob/master/FIG/tx_channel.JPG)
+
+### Angular domain representation of signals
+Every linear transformation can be represented as a composition of three operations: a rotation operation, a scaling operation, and another rotation operation. H has a **singular value decomposition (SVD)**:
+$$ H=U\Lambda V^* $$
+> U & V: (rotation) unitary matrices ; $ \Lambda $: a rectangular matrix
+
+$$ y=U\Lambda V^* x+w⇒U^* y=\Lambda V^* x+U^* w $$
+
+Define: </br>
+$$ \tild{x}=V^* x ; \tild{y}=U^* y; \tild{w}=U^* w $$
+
+We can rewrite the channel to angular domain as: </br>
+$$ \tild{y}=\Lambda \tild{x}+\tild{w} $$
