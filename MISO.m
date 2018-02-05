@@ -1,4 +1,4 @@
-function [Ut, correlation, desired_gain, SINR, SINR_MRC] = MISO(Nt, deltat, phit, phi_intf)
+function [Ut, desired_gain, SINR, SINR_MRC] = MISO(Nt, deltat, phit, phi_intf)
 omegat = cos(phit); % directional cosine with tx antenna array
 
 % angular-domain radiation basis
@@ -9,12 +9,11 @@ for i=1:Nt
 end
 
 % Correlation btw different basis vector
-correlation = zeros(Nt, Nt);
-for i = 1:Nt
-    for j = 1:Nt
-        correlation(i,j) = Ut(:,i)' * Ut(:,j);
-    end
-end
+omg_array = -2:0.01:2;
+figure,plot(omg_array, abs(f(Nt, deltat, omg_array, Lt)))
+title('Correlation between different basis vectors');
+xlabel('£[');
+ylabel('|f(£[)|');
 
 % gain pattern of ULA
 phi = 0:pi/365:2*pi;
@@ -25,7 +24,7 @@ title('Gain pattern of the ULA');
 % gain of the desired signal for using different radiation beams
 it = 0:Nt-1; % index or tx antenna
 a = 1;
-desired_gain = conj(a*exp(-1i*2*pi.*it*deltat*omegat))*Ut;
+desired_gain = a*exp(-1i*2*pi.*it*deltat*omegat)*Ut;
 abs_desired_gain = abs(desired_gain);
 figure,plot(abs_desired_gain);
 title('Gain of desired signal (MISO)');
@@ -36,7 +35,7 @@ ylabel('Gain');
 omg_intf = cos(phi_intf);
 intf_gain = conj(a*exp(-1i*2*pi.*it*deltat*omg_intf))*Ut;
 abs_intf_gain = abs(intf_gain);
-SINR = 10*log10(abs_desired_gain./abs_intf_gain);
+SINR = 10*log10((abs_desired_gain.^2)./(abs_intf_gain.^2));
 figure,plot(SINR);
 title('SINR for different beams (MISO)');
 xlabel('Antenna');
