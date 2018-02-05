@@ -120,6 +120,7 @@ I implemented this part by **MRC (Maximal ratio combining)**, and the **SINR = 1
 *	The reception direction of the interference signal: π/3
  </br>
 Basically, the result of MISO is similar to SIMO. </br>
+
 1. Correlation between two signal with different radiation or reception direction $ \theta $ </br>
 ![corr_MISO](https://github.com/ChenBlue/Angular-domain-Uniform-linear-array-radiation-reception/blob/master/FIG/corr_MISO.jpg) </br>
 
