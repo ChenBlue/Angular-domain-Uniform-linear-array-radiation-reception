@@ -9,7 +9,6 @@ Implement angular-domain model of MIMO channel, and evaluate the Radiation and R
 ### Ouput results
 * The correlation between two signal with different radiation or reception direction
 * Polar beamforming pattern of the ULA
-* The gain of the desired signal for using different radiation/reception beams
 * The SINR of multiple input signals (multiple reception directions) with diversity combining (considering fading for the signals and interference)
 
 ## Algorithm
@@ -88,25 +87,38 @@ Polar plot: $(φ,|f_r (cosφ-cosφ_0 )|) $
 *	The reception directions of the desired signal: π/4
 *	The reception direction of the interference signal: π/2
 
-1. Correlation between two signal with different radiation or reception direction $ \theta $
+1. Correlation between two signal with different radiation or reception direction $ \theta $ </br>
 We use $ |f_r (Ω_r )|=|f_r (Ω_{r2}-Ω_{r1} )|=|cos\theta | $ to represent the correlation between two different signal, which is shown as following image. </br>
-![corr](https://github.com/ChenBlue/Angular-domain-Uniform-linear-array-radiation-reception/blob/master/FIG/beam_SIMO.jpg)
-Besides, here will show some correlation comparison with different $ n_r $ and $ ∆_r $
-![corr](https://github.com/ChenBlue/Angular-domain-Uniform-linear-array-radiation-reception/blob/master/FIG/corr_dif.JPG)
+![corr](https://github.com/ChenBlue/Angular-domain-Uniform-linear-array-radiation-reception/blob/master/FIG/corr_SIMO.jpg) </br>
+Besides, here will show some correlation comparison with different $ n_r $ and $ ∆_r $ </br>
+![corr](https://github.com/ChenBlue/Angular-domain-Uniform-linear-array-radiation-reception/blob/master/FIG/corr_dif.JPG) </br>
 For the last figure $ (∆_r =1/1000) $, we can see that, as $ n_r \rightarrow \infty $ and $ ∆_r \rightarrow 0 $.
 $$ f_r (Ω)\rightarrow e^{jπL_r Ω_r } sinc(L_r Ω_r) $$
 
-2. Polar beamforming pattern of ULA
-Polar plot of $ |f_r (Ω_{r2}-Ω_{r1} )|=|f_r (cosφ-cosφ_0 )| $. **Main lobe** is around reception direction of signal $ \phi _0 $ and also any $ \phi $ for: $ cos\phi =cos\phi _0 $ mod $ 1/∆_r $. Moreover, **Beamwidth** is determined by $ 2/L_r $. The following figure is our received gain pattern with $ \phi _0=π/4 $, and $ ∆_r=1/2 $, $ L_r=5/2 z$. We can see that main lobe is around +45° and-45°.
-![beam](https://github.com/ChenBlue/Angular-domain-Uniform-linear-array-radiation-reception/blob/master/FIG/beam_SIMO.jpg)
+2. Polar beamforming pattern of ULA </br>
+Polar plot of $ |f_r (Ω_{r2}-Ω_{r1} )|=|f_r (cosφ-cosφ_0 )| $. **Main lobe** is around reception direction of signal $ \phi _0 $ and also any $ \phi $ for: $ cos\phi =cos\phi _0 $ mod $ 1/∆_r $. Moreover, **Beamwidth** is determined by $ 2/L_r $. The following figure is our received gain pattern with $ \phi _0=π/4 $, and $ ∆_r=1/2 $, $ L_r=5/2 $. We can see that main lobe is around +45° and-45°. </br>
+![beam](https://github.com/ChenBlue/Angular-domain-Uniform-linear-array-radiation-reception/blob/master/FIG/beam_SIMO.jpg) </br>
 
-Here, I will show other beamforming patterns with different $ phi_0 $, $ L_r $, $ ∆_r $
-* Different $ phi_0 $
-![beamphi](https://github.com/ChenBlue/Angular-domain-Uniform-linear-array-radiation-reception/blob/master/FIG/beam_phi.JPG)
-*	Different $ L_r $
-![beamL](https://github.com/ChenBlue/Angular-domain-Uniform-linear-array-radiation-reception/blob/master/FIG/beam_L.JPG)
-* Different $ ∆_r $
-![beamDelta](https://github.com/ChenBlue/Angular-domain-Uniform-linear-array-radiation-reception/blob/master/FIG/beam_delta.JPG)
+Here, I will show other beamforming patterns with different $ phi_0 $, $ L_r $, $ ∆_r $ </br>
+* Different $ \phi _0 $ </br>
+![beamphi](https://github.com/ChenBlue/Angular-domain-Uniform-linear-array-radiation-reception/blob/master/FIG/beam_phi.JPG) </br>
+*	Different $ L_r $ </br>
+![beamL](https://github.com/ChenBlue/Angular-domain-Uniform-linear-array-radiation-reception/blob/master/FIG/beam_L.JPG) </br>
+* Different $ ∆_r $ </br>
+![beamDelta](https://github.com/ChenBlue/Angular-domain-Uniform-linear-array-radiation-reception/blob/master/FIG/beam_delta.JPG) </br>
 
+3. The SINR of multiple input signals (multiple reception directions) with **diversity combining** </br>
+I implemented this part by **MRC (Maximal ratio combining)**, and the SINR = 16.9243 dB
 
+### MISO
+**Input parameters**:
+* Number of received antenna: $ N_t =7 $
+* The normalized antenna separation: 1/2
+*	The reception directions of the desired signal: π/6
+*	The reception direction of the interference signal: π/3
 
+1. Correlation between two signal with different radiation or reception direction $ \theta $ </br>
+
+2. Polar beamforming pattern of ULA </br>
+
+3. The SINR of multiple input signals (multiple reception directions) with **diversity combining** </br>
