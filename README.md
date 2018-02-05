@@ -23,6 +23,9 @@ The following two figure shows the **LOS(Line-of-sight)** channel with SIMO and 
 **Uniform linear antenna arrays**: the antenna are evenly spaced on a straight line.
 
 ### LOS of SIMO model
+The following picture shows SIMO model: </br>
+![SIMO](https://github.com/ChenBlue/Angular-domain-Uniform-linear-array-radiation-reception/blob/master/FIG/SIMO.JPG)
+
 Channel gain:
 $$ h_i = 𝑎∙𝑒𝑥𝑝(−\frac{𝑗2\pi 𝑓_𝑐 𝑑_𝑖}{c}) = 𝑎∙𝑒𝑥𝑝 (−\frac{𝑗2\pi 𝑑_𝑖}{\lambda_𝑐}) $$
 > a: attenuation of the path, which we assume to be the same for all antenna pairs </br>
@@ -33,6 +36,8 @@ Define directional cosine: $ \Omega = cos\phi $. Channel gain will be: </br>
 ![rx_channel_gain](https://github.com/ChenBlue/Angular-domain-Uniform-linear-array-radiation-reception/blob/master/FIG/rx_channel.JPG)
 
 ### LOS of MISO model
+The following picture shows MISO model: </br>
+![MISO](https://github.com/ChenBlue/Angular-domain-Uniform-linear-array-radiation-reception/blob/master/FIG/MISO.JPG)
 Similar to SIMO model, the channel gain is: </br>
 ![tx_channel_gain](https://github.com/ChenBlue/Angular-domain-Uniform-linear-array-radiation-reception/blob/master/FIG/tx_channel.JPG)
 
@@ -44,7 +49,20 @@ $$ H=U\Lambda V^* $$
 $$ y=U\Lambda V^* x+w⇒U^* y=\Lambda V^* x+U^* w $$
 
 Define: </br>
-$$ \tild{x}=V^* x ; \tild{y}=U^* y; \tild{w}=U^* w $$
+$$ \tilde{x}=V^* x ; \tilde{y}=U^* y; \tilde{w}=U^* w $$
 
 We can rewrite the channel to angular domain as: </br>
-$$ \tild{y}=\Lambda \tild{x}+\tild{w} $$
+$$ \tilde{y}=\Lambda \tilde{x}+\tilde{w} $$
+
+Orthonormal basis for received signal space will be:
+$$ U_r=[e_r (0),e_r (\frac{1}{L_r} ),… e_r (\frac{N_r -1}{L_r }]=U $$
+
+Orthonormal basis for transmitted signal space will be:
+$$ U_t=[e_t (0),e_t (\frac{1}{L_t }),… e_t (\frac{N_t -1}{L_t })]=V $$
+
+We now represent the MIMO fading channel $ y=Hx+w $ in the angular domain. $ U_t $ and $ U_r $ are respectively the $ n_t \times n_t $ and $ n_r \times n_r $ unitary matrices. Transformations: 
+$$ x^a = U_t^* x,  y^a = U_r ^* y $$
+are the changes of coordinates of the transmitted and received signals into angular domain. Substitute this into y=Hx+w, we have channel in angular domain:
+$$ y^a =U_r ^* HU_t x^a +U_r^* w=H^a x^a +w^a $$
+where
+$$ H^a = U_r ^* HU_t $$
