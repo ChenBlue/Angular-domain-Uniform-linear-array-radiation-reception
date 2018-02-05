@@ -72,7 +72,7 @@ Two transmit antenna are placed very far apart, so the two channel are independe
 Angle $ \theta $ between the two spatial signatures is 
 $$ |cosθ|=|e_r (\Omega _{r1} )^* e_r (\Omega _{r2})| $$ </br>
 It only dependes on difference $ \Omega _r =\Omega _{r2} -\Omega _{r1} $ . Define </br>
-$$ f_r (\Omega _{r2}- \Omega _{r1} ) = e_r (\Omega _{r1} )^* e_r (\Omega_{r2} ) $$
+$$ f_r (\Omega _{r2}- \Omega _{r1} ) = e_r (\Omega _{r1} )^* e_r (\Omega _{r2} ) $$
 
 Since $ |1-e^{-j2\theta } |=|2sin\theta | $ </br>
 **Normalized length of the receive antenna array**: $ L_r =n_r \Delta_r $
